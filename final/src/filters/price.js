@@ -20,6 +20,10 @@ const setupPrice = (store) => {
     priceValue.textContent = `Value : $${value}`;
     let newStore = store.filter((product) => product.price / 100 <= value);
     display(newStore, getElement('.products-container'));
+    if (newStore.length < 1) {
+      const products = getElement('.products-container');
+      products.innerHTML = `<h3 class="filter-error">sorry, no products matched your search</h3>`;
+    }
   });
 };
 
