@@ -30,10 +30,9 @@ window.addEventListener('DOMContentLoaded', async function () {
     if (response.status >= 200 && response.status <= 299) {
       const product = await response.json();
       // grab data
-
       const { id, fields } = product;
-
       productID = id;
+
       const { name, company, price, colors, description } = fields;
       const image = fields.image[0].thumbnails.large.url;
       // set values
@@ -54,10 +53,11 @@ window.addEventListener('DOMContentLoaded', async function () {
     } else {
       console.log(response.status, response.statusText);
       centerDOM.innerHTML = `
-      <div>
-      <h3 class="error">sorry,something went wrong</h3>
-      <a href="index.html" class="btn">back Home</a>
-      </div>`;
+    <div>
+    <h3 class="error">sorry, something went wrong</h3>
+    <a href="index.html" class="btn">back home</a>
+    </div> 
+     `;
     }
   } catch (error) {
     console.log(error);
